@@ -41,7 +41,9 @@ DJANGO_APPS = ["django.contrib.admin",
     "django.contrib.staticfiles",
     ]
 
-THRID_PARTY_APPS = []
+THRID_PARTY_APPS = ['crispy_forms',
+    "crispy_bootstrap5",
+]
 
 MY_APPS = [
     "paginas.apps.PaginasConfig",
@@ -132,3 +134,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
