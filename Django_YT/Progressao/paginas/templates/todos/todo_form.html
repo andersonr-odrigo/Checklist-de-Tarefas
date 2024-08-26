@@ -14,12 +14,12 @@
     </nav>
 
     <main class="container">
-        <h1>Nova Tarefa</h1>
-
-        <form>
+        <h1>Nova Tarefa</h1>  
+        
+        <form method="POST">
           {% csrf_token %}
-          {{ todo.data_criacao }}
 
+          {{ form }}
           <button type="submit">Salvar</button>
         </form>
         

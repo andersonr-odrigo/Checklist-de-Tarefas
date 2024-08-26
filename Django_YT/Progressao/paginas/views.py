@@ -19,6 +19,7 @@ class TodoListView(ListView):
     fields = ["titulo", "data_criacao"]
     success_url = redirect("todos/lista_todo/")'''
 
-def TodoCreate(request):
-    todos = Todo.objects.filter()
-    return render(request, "todos/lista_todo.html")
+class TodoCreateView(CreateView):
+    model = Todo
+    fields = ["titulo", "data_entrega"]
+    success_url = reverse_lazy("lista_tarefa")
