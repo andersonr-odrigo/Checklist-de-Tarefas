@@ -3,11 +3,20 @@
 {% load crispy_forms_tags %}
 
 {% block titulo_pagina %}
-  Nova Tarefa
+  {% if todo.pk %}
+    Editar Tarefa 
+  {% else %}
+    Nova Tarefa
+  {% endif %}
 {% endblock titulo_pagina %}
 
 {% block content %}
-  <h1>Nova Tarefa</h1>
+  {% if todo.pk %}
+    <h1>Editar Tarefa</h1>
+  {% else %}
+    <h1>Nova Tarefa</h1>
+  {% endif %}
+  
   <form method="POST">
     {% csrf_token %}
 

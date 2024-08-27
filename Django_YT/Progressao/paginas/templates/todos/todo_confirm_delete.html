@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block titulo_pagina %}
+    Confirmação de Deletar Tarefa
+{% endblock %}
+
+{% block content %}
+    <h1>Deseja excluir a tarefa?</h1>
+
+    <p>Quer mesmo excluir a tarefa <strong>{{ todo.titulo }}</strong>?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a href="{% url 'lista_tarefa' %}" class="btn btn-primary">Cancelar</a>
+    </form>
+{% endblock %}
