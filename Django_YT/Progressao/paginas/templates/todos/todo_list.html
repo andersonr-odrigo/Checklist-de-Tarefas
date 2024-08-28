@@ -12,7 +12,7 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col">Id</th>
             <th scope="col">Título</th>
             <th scope="col">Data de Criação</th>
             <th scope="col">Data de Entrega</th>
@@ -30,8 +30,9 @@
                     <td>{{ todo.data_entrega }}</td>
                     <td>{{ todo.data_finalizacao|default:"-" }}</td>
                     <td>
-                        <a href="{% url 'finalizar_tarefa' pk=todo.pk %}" class="btn btn-primary btn-sm">Concluir</a>
-                        <a href="{% url 'edicao_tarefa' pk=todo.pk %}" class="btn btn-secondary btn-sm">Editar</a>
+
+                        <a href="{% url 'finalizar_tarefa' pk=todo.pk %}" class="btn btn-primary btn-sm {% if todo.data_finalizacao %}disabled{% endif %}">Concluir</a>
+                        <a href="{% url 'edicao_tarefa' pk=todo.pk %}" class="btn btn-secondary btn-sm {% if todo.data_finalizacao %}disabled{% endif %}">Editar</a>
                         <a href="{% url 'deletar_tarefa' pk=todo.pk %}" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>

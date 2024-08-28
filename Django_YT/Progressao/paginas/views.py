@@ -1,10 +1,8 @@
-from datetime import date
-
 from django.shortcuts import render, redirect
 from .models import *
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, View
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView, View
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import redirect
 
 # Create your views here.
 def home(request):
@@ -36,10 +34,9 @@ class TodoDeleteView(DeleteView):
     model = Todo
     success_url = reverse_lazy("lista_tarefa")
 
-class TodoCompleteView(View):
+class TodoCompleteView(TemplateView, View):
     def get(self, request, pk):
-        # Todo.objects.get(pk=pk)
-        todo = get_object_or_404(Todo, pk=pk)
-        todo.data_finalizacao = date.today()
-        todo.save()
+        todo = Todo.objects.get(pk=pk)
+        todo.mark_has_complete()
         return redirect("lista_tarefa")
+    

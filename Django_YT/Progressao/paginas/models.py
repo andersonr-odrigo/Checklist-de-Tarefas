@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 
 
@@ -9,3 +11,11 @@ class Todo(models.Model):
     data_finalizacao = models.DateField(
         null=True,
     )
+
+    class Meta:
+        ordering = ["-data_entrega"]
+
+    def mark_has_complete(self):
+        if not self.data_finalizacao:
+            self.data_finalizacao = date.today()
+            self.save()
