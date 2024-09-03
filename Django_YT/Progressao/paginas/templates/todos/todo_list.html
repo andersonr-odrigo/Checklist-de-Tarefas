@@ -30,8 +30,13 @@
                     <td>{{ todo.data_entrega }}</td>
                     <td>{{ todo.data_finalizacao|default:"-" }}</td>
                     <td>
+                      {% if todo.data_finalizacao %}
+                        <a href="{% url 'finalizar_tarefa' pk=todo.pk %}" class="btn btn-outline-dark btn-sm">Retomar</a>
+                      {% else %}
+                        <a href="{% url 'finalizar_tarefa' pk=todo.pk %}" id="btn-concluir" class="btn btn-primary btn-sm" onclick="return confirm('Tem certeza que deseja concluir essa tarefa?')">Concluir</a>
+                      {% endif %}
+                        
 
-                        <a href="{% url 'finalizar_tarefa' pk=todo.pk %}" class="btn btn-primary btn-sm {% if todo.data_finalizacao %}disabled{% endif %}">Concluir</a>
                         <a href="{% url 'edicao_tarefa' pk=todo.pk %}" class="btn btn-secondary btn-sm {% if todo.data_finalizacao %}disabled{% endif %}">Editar</a>
                         <a href="{% url 'deletar_tarefa' pk=todo.pk %}" class="btn btn-danger btn-sm">Excluir</a>
                     </td>

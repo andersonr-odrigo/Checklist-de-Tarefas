@@ -19,3 +19,6 @@ class Todo(models.Model):
         if not self.data_finalizacao:
             self.data_finalizacao = date.today()
             self.save()
+        else:
+            self.data_finalizacao = None
+            self.save()
