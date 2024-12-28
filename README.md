@@ -1,4 +1,4 @@
-# Checklist-de-Tarefas
+# Checklist-de-Tarefaa
 
 O projeto django aqui apresentado é uma lista To Do, abordando o uso de CBVs e operações básicas HTTP (CRUD), junto com a arquitetura na qual o django é estruturado: Models, Views e Templates.
 
